@@ -16,17 +16,17 @@ public class InvoiceController {
     InvoiceService service;
 
     @PostMapping("/GenerateInvoice")
-    ResponseEntity<?> createInvoice(@RequestBody InvoiceRequest request){
+    public ResponseEntity<?> createInvoice(@RequestBody InvoiceRequest request){
         Invoice invoice = service.invoiceGenerate(request);
 
         return new ResponseEntity<>(invoice, HttpStatus.CREATED);
     }
 
     @GetMapping("/id/{id}")
-    ResponseEntity<?> DownloadInvoice(@PathVariable Long id){
+    public ResponseEntity<?> DownloadInvoice(@PathVariable Long id){
         service.invoiceDownload(id);
 
-        return new ResponseEntity<>("Invoice Downloaded", HttpStatus.CREATED);
+        return new ResponseEntity<String>("Invoice Downloaded", HttpStatus.CREATED);
     }
 
 }
