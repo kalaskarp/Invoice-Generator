@@ -5,6 +5,7 @@ import com.Invoice.Invoice.PDFGeneratorLogic.InvoicePDFGenerator;
 import com.Invoice.Invoice.entity.*;
 import com.Invoice.Invoice.repository.InvoiceRepository;
 import com.Invoice.Invoice.service.InvoiceService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ public class InvoiceServiceIMPL implements InvoiceService {
     InvoiceRepository invoiceRepository;
 
     @Override
+    @Transactional
     public Invoice invoiceGenerate(InvoiceRequest invoiceRequest) {
 
         Seller seller = new Seller();

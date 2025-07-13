@@ -22,7 +22,7 @@ public class Invoice {
     @JoinColumn(name = "buyer_id")
     private Buyer buyer;
 
-    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Product> items = new ArrayList<>();
 }
 
