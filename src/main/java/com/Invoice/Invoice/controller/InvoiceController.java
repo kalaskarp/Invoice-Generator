@@ -17,9 +17,9 @@ public class InvoiceController {
 
     @PostMapping("/GenerateInvoice")
     public ResponseEntity<?> createInvoice(@RequestBody InvoiceRequest request){
-        Invoice invoice = service.invoiceGenerate(request);
+        service.invoiceGenerate(request);
 
-        return new ResponseEntity<>(invoice, HttpStatus.CREATED);
+        return new ResponseEntity<>("Invoice Generated", HttpStatus.CREATED);
     }
 
     @GetMapping("/id/{id}")
